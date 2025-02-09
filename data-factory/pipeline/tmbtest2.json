@@ -1,0 +1,67 @@
+{
+	"name": "tmbtest2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "var3",
+					"value": {
+						"value": "@variables('var1')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable2",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "var4",
+					"value": {
+						"value": "@variables('var2')",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"var1": {
+				"type": "String",
+				"defaultValue": "@trigger().outputs.windowStartTime"
+			},
+			"var2": {
+				"type": "String",
+				"defaultValue": "@trigger().outputs.windowEndTime"
+			},
+			"var3": {
+				"type": "String"
+			},
+			"var4": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-02-06T23:59:32Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

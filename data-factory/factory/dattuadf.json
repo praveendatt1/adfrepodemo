@@ -1,0 +1,9 @@
+{
+	"name": "dattuadf",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "8f3cdaa6-a774-4bf2-82f7-ec75c04b754c",
+		"tenantId": "3faed1e2-c05b-433d-bec6-baa6c501f6fa"
+	}
+}

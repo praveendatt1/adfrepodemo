@@ -1,0 +1,83 @@
+{
+	"name": "childpipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "var",
+					"value": "sdgss"
+				}
+			},
+			{
+				"name": "send email",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://prod-22.northcentralus.logic.azure.com:443/workflows/8d9ac16d829c48ccb493aeba3e66d1b6/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=Ouno0FM8Yv2OiO8d4n1jiQZyfbJKlhRgfaMRi56hK7g",
+					"body": {
+						"value": "{\n        \"dataFactoryName\": \"@pipeline().DataFactory\",\n        \"message\":\"This is a custom message from your pipeline with @pipeline().RunId \",\n        \"pipelineName\":\"@pipeline().Pipeline\",\n        \"receiver\": \"@pipeline().parameters.receiver\"  \n    \n}",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"receiver": {
+				"type": "string",
+				"defaultValue": "praveendatt@gmail.com"
+			},
+			"WindowStart": {
+				"type": "string"
+			},
+			"WindowEnd": {
+				"type": "string"
+			}
+		},
+		"variables": {
+			"var": {
+				"type": "Integer"
+			},
+			"starttime": {
+				"type": "String",
+				"defaultValue": "@trigger().outputs.windowStartTime"
+			},
+			"endtime": {
+				"type": "String",
+				"defaultValue": "@trigger().outputs.windowEndTime"
+			},
+			"pipestarttime": {
+				"type": "String"
+			},
+			"pipeendtime": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-02-06T22:47:02Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

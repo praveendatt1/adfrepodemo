@@ -1,0 +1,17 @@
+{
+	"name": "AdventureWorksSQLDB_LS",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "dattudemosqlserver.database.windows.net",
+			"database": "adventureworksforde",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "dattudemosql",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEU4OEZBMjVFLTA3MkItNDIzQS1CMzA0LTY3MzRBNzM3RDA0NV9jNzQ4MjI4Zi1hNDcwLTQyODEtYjAzYi02MDYxNDlhYjQ4NjQiDQp9"
+		}
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"name": "AzureSqlDatabase831_MPE",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/c552f22b-6acb-472d-8c61-197b921caf41/resourceGroups/DEwork/providers/Microsoft.Sql/servers/dattudemosqlserver",
+		"groupId": "sqlServer"
+	}
+}
