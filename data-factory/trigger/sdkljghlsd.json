@@ -1,0 +1,24 @@
+{
+	"name": "sdkljghlsd",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "tesmp",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15,
+				"startTime": "2025-02-09T23:20:00",
+				"timeZone": "Eastern Standard Time"
+			}
+		}
+	}
+}
